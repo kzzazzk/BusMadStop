@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AugmentingMadrid</string>
+    <string name="title_activity_main">activity_main</string>
+    <string name="title_activity_acitivity_main">acitivity_main</string>
+    <string name="title_activity_main.xml">activity_main.xml</string>
+    <string name="title_activity_main2">MainActivity2</string>
 </resources>
