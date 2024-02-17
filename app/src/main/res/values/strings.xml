@@ -48,4 +48,6 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="title_activity_third">ThirdActivity</string>
+    <string name="go_to_second_activity">GO TO SECOND ACTIVITY</string>
+    <string name="augmentingmadrid">AugmentingMadrid</string>
 </resources>
