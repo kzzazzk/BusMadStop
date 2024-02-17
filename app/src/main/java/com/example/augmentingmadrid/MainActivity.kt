@@ -1,21 +1,25 @@
 package com.example.augmentingmadrid
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.augmentingmadrid.ui.theme.AugmentingMadridTheme
-
 class MainActivity : ComponentActivity() {
+
+    private val TAG = "btaMainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "onCreate: The activity is being created.")
+
         setContentView(R.layout.activity_main)
+        val buttonNext: Button = findViewById(R.id.toSecondActivity)
+
+        buttonNext.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
+        }
     }
+
 }

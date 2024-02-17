@@ -13,6 +13,16 @@
         android:theme="@style/Theme.AugmentingMadrid"
         tools:targetApi="31">
         <activity
+            android:name=".ThirdActivity"
+            android:exported="false"
+            android:label="@string/title_activity_third"
+            android:theme="@style/Theme.AugmentingMadrid" />
+        <activity
+            android:name=".SecondActivity"
+            android:exported="false"
+            android:label="@string/title_activity_second"
+            android:theme="@style/Theme.AugmentingMadrid" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
