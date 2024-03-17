@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.TextView
 import androidx.activity.ComponentActivity
 
 
@@ -14,7 +13,7 @@ class SecondActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "onCreate: The activity is being created.");
+        Log.d(TAG, "onCreate: The activity is being created.")
 
         setContentView(R.layout.activity_second)
         val buttonBack: Button = findViewById(R.id.toMainActivity)
@@ -27,11 +26,6 @@ class SecondActivity : ComponentActivity() {
             val intent = Intent(this, ThirdActivity::class.java)
             startActivity(intent)
         }
-        val latitude = intent.getDoubleExtra("latitude", 0.0)
-        val longitude = intent.getDoubleExtra("longitude", 0.0)
-
-        findViewById<TextView>(R.id.latitudeTextView).text = "Latitude: $latitude"
-        findViewById<TextView>(R.id.longitudeTextView).text = "Longitude: $longitude"
     }
 
 }

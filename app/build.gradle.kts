@@ -4,8 +4,10 @@ plugins {
 }
 
 android {
+
     namespace = "com.example.augmentingmadrid"
     compileSdk = 34
+
 
     defaultConfig {
         applicationId = "com.example.augmentingmadrid"
