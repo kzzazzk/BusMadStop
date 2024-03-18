@@ -50,4 +50,8 @@
     <string name="title_activity_third">ThirdActivity</string>
     <string name="go_to_second_activity">GO TO SECOND ACTIVITY</string>
     <string name="augmentingmadrid">AugmentingMadrid</string>
+    <string name="longitude_0_0">Longitude: 0.0</string>
+    <string name="latitude_0_0">Latitude: 0.0</string>
+    <string name="open_map">OPEN MAP</string>
+    <string name="title_activity_open_street_map">OpenStreetMapActivity</string>
 </resources>

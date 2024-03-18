@@ -28,8 +28,12 @@ class MainActivity : AppCompatActivity(), LocationListener {
     companion object {
         private const val MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1
     }
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val buttonOsm: Button = findViewById(R.id.osmButton)
+
 
         Log.d(TAG, "onCreate: The activity is being created.")
 
@@ -37,7 +41,6 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
         getLastKnownLocation()
 
-        setContentView(R.layout.activity_main)
         val buttonNext: Button = findViewById(R.id.toSecondActivity)
 
         buttonNext.setOnClickListener {
@@ -68,7 +71,17 @@ class MainActivity : AppCompatActivity(), LocationListener {
             // whichever happens first
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this)
         }
-
+        buttonOsm.setOnClickListener {
+            if (latestLocation != null) {
+                val intent = Intent(this, OpenStreetMapActivity::class.java)
+                val bundle = Bundle()
+                bundle.putParcelable("location", latestLocation)
+                intent.putExtra("locationBundle", bundle)
+                startActivity(intent)
+            }else{
+                Log.e(TAG, "Location not set yet.")
+            }
+        }
     }
 
     @SuppressLint("SetTextI18n")
