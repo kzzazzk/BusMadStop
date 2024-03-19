@@ -10,7 +10,10 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
+    <string name="title_home">Home</string>
+    <string name="title_map">Map</string>
+    <string name="title_list">Collection</string>
+    <string name="title_config">Settings</string>
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
@@ -54,4 +57,5 @@
     <string name="latitude_0_0">Latitude: 0.0</string>
     <string name="open_map">OPEN MAP</string>
     <string name="title_activity_open_street_map">OpenStreetMapActivity</string>
+    <string name="title_activity_test">Test</string>
 </resources>

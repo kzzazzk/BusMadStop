@@ -33,4 +33,11 @@
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize" />
 
+    <!-- Bottom Navigation View -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"></com.google.android.material.bottomnavigation.BottomNavigationView>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

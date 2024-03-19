@@ -3,6 +3,8 @@ package com.example.augmentingmadrid
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -29,8 +31,6 @@ class OpenStreetMapActivity : AppCompatActivity() {
             map.setTileSource(TileSourceFactory.MAPNIK)
             map.controller.setZoom(15.0)
             val madridGeoPoint = GeoPoint(40.416775,  -3.703790) // Madrid, Spain
-
-
             val gymkhanaCoords = listOf(
                 GeoPoint(40.423391666667, -3.7122333333333), // Plaza de España
                 GeoPoint(40.4252777778, -3.70833333333), // Malasaña
@@ -101,24 +101,10 @@ class OpenStreetMapActivity : AppCompatActivity() {
             mapView.overlays.add(marker)
         }
         mapView.invalidate()
+
+
     }
-    private fun askForUserIdentifier() {
-        val input = EditText(this)
-        AlertDialog.Builder(this)
-            .setTitle("Enter User Identifier")
-            .setIcon(R.mipmap.ic_launcher)
-            .setView(input)
-            .setPositiveButton("Save") { dialog, which ->
-                val userInput = input.text.toString()
-                if (userInput.isNotBlank()) {
-                    Toast.makeText(this, "User ID saved: $userInput", Toast.LENGTH_LONG).show()
-                } else {
-                    Toast.makeText(this, "User ID cannot be blank", Toast.LENGTH_LONG).show()
-                }
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
-    }
+
     override fun onResume() {
         super.onResume()
         map.onResume()
@@ -127,4 +113,5 @@ class OpenStreetMapActivity : AppCompatActivity() {
         super.onPause()
         map.onPause()
     }
+
 }
