@@ -29,7 +29,7 @@ class OpenStreetMapActivity : AppCompatActivity() {
             map.controller.setZoom(15.0)
             val madridGeoPoint = GeoPoint(40.416775,  -3.703790) // Madrid, Spain
 
-            
+
             val gymkhanaCoords = listOf(
                 GeoPoint(40.423391666667, -3.7122333333333), // Plaza de España
                 GeoPoint(40.4252777778, -3.70833333333), // Malasaña
@@ -67,17 +67,36 @@ class OpenStreetMapActivity : AppCompatActivity() {
             Log.e("addMarkersAndRoute", "Locations and names lists must have the same number of items.")
             return
         }
-        val route = Polyline()
-        route.setPoints(locationsCoords)
-        route.color = ContextCompat.getColor(this, R.color.teal_700)
+
+        val iconMap = mapOf(
+            "Plaza de España" to R.drawable.icon_plaza,
+            "Malasaña" to R.drawable.icon_location,
+            "Puerta de Alcala" to R.drawable.icon_puerta_alcala,
+            "Museo del Prado" to R.drawable.icon_museum,
+            "El Retiro" to R.drawable.icon_park,
+            "Restaurante Asturias" to R.drawable.icon_restaurant,
+            "Bar Las Carabelas" to R.drawable.icon_restaurant,
+            "Taperia La Pequena Grana" to R.drawable.icon_restaurant,
+            "Callao" to R.drawable.icon_plaza,
+            "Casa de Campo" to R.drawable.icon_park,
+            "Manzanares el Real" to R.drawable.icon_park
+        )
+
+        val route = Polyline().also {
+            it.color = ContextCompat.getColor(this, R.color.teal_700)
+            it.setPoints(locationsCoords)
+        }
         mapView.overlays.add(route)
-        for (location in locationsCoords) {
-            val marker = Marker(mapView)
-            marker.position = location
-            marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
-            val locationIndex = locationsCoords.indexOf(location)
-            marker.title = "Marker at ${locationsNames[locationIndex]} ${location.latitude}, ${location.longitude}"
-            marker.icon = ContextCompat.getDrawable(this, com.google.android.material.R.drawable.ic_m3_chip_checked_circle)
+
+        locationsNames.forEachIndexed { index, name ->
+            val location = locationsCoords[index]
+            val markerIconId = iconMap[name] ?:  ContextCompat.getDrawable(this, com.google.android.material.R.drawable.ic_m3_chip_checked_circle) // Use a default icon if no match found
+            val marker = Marker(mapView).apply {
+                position = location
+                title = "Marker at $name ${location.latitude}, ${location.longitude}"
+                setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+                icon = ContextCompat.getDrawable(this@OpenStreetMapActivity, markerIconId as Int)
+            }
             mapView.overlays.add(marker)
         }
         mapView.invalidate()
