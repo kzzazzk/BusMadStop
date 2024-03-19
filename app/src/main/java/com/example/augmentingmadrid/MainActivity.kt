@@ -15,6 +15,7 @@ import com.google.android.gms.location.LocationServices
 import android.location.LocationListener
 import android.location.LocationManager
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity(), LocationListener {
@@ -88,6 +89,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
     override fun onLocationChanged(location: Location) {
         val latitute: TextView = findViewById(R.id.latitudeTextView)
         val longitude: TextView = findViewById(R.id.longitudeTextView)
+        Toast.makeText(this, "Coordinates update! [${location.latitude}][${location.longitude}]", Toast.LENGTH_LONG).show()
         latitute.text = "Latitude: ${location.latitude}"
         longitude.text = "Longitude: ${location.longitude}"
     }
