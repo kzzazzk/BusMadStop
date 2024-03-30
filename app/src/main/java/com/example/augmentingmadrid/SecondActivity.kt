@@ -36,18 +36,6 @@ class SecondActivity : ComponentActivity() {
         val adapter = CoordinatesAdapter(this, readFileContents())
         listView.adapter = adapter
 
-        val buttonBack: Button = findViewById(R.id.toMainActivity)
-        val buttonNext: Button = findViewById(R.id.toThirdActivity)
-
-
-        buttonBack.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
-        buttonNext.setOnClickListener {
-            val intent = Intent(this, ThirdActivity::class.java)
-            startActivity(intent)
-        }
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         navView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {

@@ -26,16 +26,6 @@ class ThirdActivity : ComponentActivity() {
         val coordText: TextView = findViewById(R.id.list_coords_item)
         coordText.text = "Latitude: [${latitude}], Longitude: [${longitude}]]"
 
-        val backToMain: Button = findViewById(R.id.toMainActivity)
-        val backToSecond: Button = findViewById(R.id.toSecondActivity)
-        backToMain.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
-        backToSecond.setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
-            startActivity(intent)
-        }
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         navView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {

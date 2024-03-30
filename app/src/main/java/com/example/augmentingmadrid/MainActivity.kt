@@ -12,6 +12,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -38,12 +39,10 @@ class MainActivity : AppCompatActivity(), LocationListener {
         }
     }
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val buttonOsm: Button = findViewById(R.id.osmButton)
         val userIdentifier = getUserIdentifier()
 
         if (userIdentifier == null) {
@@ -57,11 +56,8 @@ class MainActivity : AppCompatActivity(), LocationListener {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         getLastKnownLocation()
 
-        val buttonNext: Button = findViewById(R.id.toSecondActivity)
-        buttonNext.setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
-            startActivity(intent)
-        }
+        val settingsButton:ImageButton = findViewById(R.id.settings_button)
+
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         // Check for location permissions
@@ -71,19 +67,6 @@ class MainActivity : AppCompatActivity(), LocationListener {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION), locationPermissionCode)
         } else {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this)
-        }
-
-        buttonOsm.setOnClickListener {
-            if (latestLocation != null) {
-                val intent = Intent(this, OpenStreetMapActivity::class.java).apply {
-                    val bundle = Bundle()
-                    bundle.putParcelable("location", latestLocation)
-                    putExtra("locationBundle", bundle)
-                }
-                startActivity(intent)
-            } else {
-                Log.e(TAG, "Location not set yet.")
-            }
         }
 
 

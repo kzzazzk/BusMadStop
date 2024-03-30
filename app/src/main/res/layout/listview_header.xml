@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="#D50000"
+    android:background="#000000"
     android:padding="12px">
     <TextView
         android:id="@+id/header_timestamp"
