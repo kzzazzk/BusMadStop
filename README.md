@@ -1,4 +1,5 @@
-# MadBusStop ![play_store_512](https://github.com/kzzazzk/AugmentingMadrid/assets/72697785/e5e49f43-5473-48f2-b856-7eea2ca6982c)
+# MadBusStop
+![ic_launcher](https://github.com/kzzazzk/AugmentingMadrid/assets/72697785/b87118ad-4ba3-4614-a517-7fe6fe68cc9b)
 
 
 ## Workspace
