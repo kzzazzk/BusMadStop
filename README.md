@@ -42,7 +42,7 @@ Welcome to MadBusStop, your ultimate companion for navigating the bustling stree
     </td>
     <td>
       <img src="img/SaveCoordinates.png" width="80%""/>
-      <p align="center">Map Activity Screen</p>
+      <p align="center">Save Coordinates</p>
     </td>
   </tr>
   <tr>
