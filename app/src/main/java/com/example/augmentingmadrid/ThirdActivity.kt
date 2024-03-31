@@ -1,70 +1,65 @@
 package com.example.augmentingmadrid
 
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class ThirdActivity : AppCompatActivity() {
-    private val TAG = "btaThirdActivity"
+    private val TAG = "ThirdActivity"
+    private lateinit var retrofitService: EmtMadridService
+    private lateinit var listView: ListView
 
-    @SuppressLint("MissingInflatedId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "onCreate: The activity is being created.");
         setContentView(R.layout.activity_third)
 
-        val toolbar: Toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        val backButton:ImageButton = findViewById(R.id.back_button)
 
+        val backButton: ImageButton = findViewById(R.id.back_button)
         backButton.visibility = View.INVISIBLE
-        val settingsButton: ImageButton = findViewById(R.id.settings_button)
 
-        settingsButton.setOnClickListener{
+        val settingsButton: ImageButton = findViewById(R.id.settings_button)
+        settingsButton.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
         }
 
-        val latitude = intent.getStringExtra("latitude")
-        val longitude = intent.getStringExtra("longitude")
-        Log.d(TAG, "Latitude: $latitude, Longitude: $longitude")
-
-        val coordText: TextView = findViewById(R.id.list_coords_item)
-        coordText.text = "Latitude: [${latitude}], Longitude: [${longitude}]]"
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         navView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+                    startActivity(Intent(this, MainActivity::class.java))
                     true
                 }
                 R.id.navigation_map -> {
-                    val latestLocation = MainActivity.getLatestLocation()
-                    if (latestLocation != null) {
-                        val intent = Intent(this, OpenStreetMapActivity::class.java)
-                        val bundle = Bundle()
-                        bundle.putParcelable("location", latestLocation)
-                        intent.putExtra("locationBundle", bundle)
+                    MainActivity.getLatestLocation()?.let {
+                        val intent = Intent(this, OpenStreetMapActivity::class.java).apply {
+                            val bundle = Bundle()
+                            bundle.putParcelable("location", it)
+                            putExtra("locationBundle", bundle)
+                        }
                         startActivity(intent)
-                    }else{
-                        Log.e(TAG, "Location not set yet.")
                     }
                     true
                 }
                 R.id.navigation_list -> {
-                    val intent = Intent(this, SecondActivity::class.java)
-                    startActivity(intent)
+                    startActivity(Intent(this, SecondActivity::class.java))
                     true
                 }
                 else -> false
@@ -72,5 +67,54 @@ class ThirdActivity : AppCompatActivity() {
         }
 
 
+        listView = findViewById(R.id.list_view_bus_stops)
+        val radius = 100
+        retrofitService = RetrofitClient.instance
+
+
+        val latitudeValue = intent.getStringExtra("latitude")
+        val longitudeValue = intent.getStringExtra("longitude")
+        makeApiCall(longitudeValue, latitudeValue, radius)
+    }
+
+
+    private fun makeApiCall(longitude: String?, latitude: String?, radius: Int) {
+        if (longitude.isNullOrEmpty() || latitude.isNullOrEmpty()) {
+            Log.e(TAG, "Longitude or latitude values are null or empty.")
+            return
+        }
+
+
+        val longitudeValue = longitude.toDouble()
+        val latitudeValue = latitude.toDouble()
+
+        retrofitService.getStopsAround("0303d17d-f6ab-48a1-b74a-d4dcb7cafdb9", longitudeValue, latitudeValue, radius)
+            .enqueue(object : Callback<BusStopsResponse> {
+                override fun onResponse(call: Call<BusStopsResponse>, response: Response<BusStopsResponse>) {
+                    if (response.isSuccessful) {
+                        val busStops = response.body()?.data
+                        busStops?.let {
+                            updateListView(it)
+                        }
+                    } else {
+                        Log.e(TAG, "Error: ${response.errorBody()?.string()}")
+                    }
+                }
+
+
+                override fun onFailure(call: Call<BusStopsResponse>, t: Throwable) {
+                    Log.e(TAG, "Failure: ${t.message}")
+                }
+            })
+    }
+
+
+    private fun updateListView(busStops: List<BusStop>) {
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_list_item_1,
+            busStops.map { "${it.stopName}, ${it.address}, ${it.metersToPoint} meters" }
+        )
+        listView.adapter = adapter
     }
 }
