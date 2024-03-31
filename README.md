@@ -47,7 +47,7 @@ Welcome to MadBusStop, your ultimate companion for navigating the bustling stree
   </tr>
   <tr>
     <td>
-      <img src="img/CoordinatesCollection.png" width="80%""/>
+      <img src="img/CollectionCoordinates.png" width="80%""/>
       <p align="center">Coordinates Collection Screen</p>
     </td>
     <td>
