@@ -49,15 +49,11 @@ Welcome to MadBusStop, your ultimate companion for navigating the bustling stree
       <p align="center">Coordinates Collection Screen</p>
     </td>
     <td>
-      <img src="img/MapScreen.png" width="80%""/>
-      <p align="center">Map Activity Screen</p>
-    </td>
-  </tr>
-    <tr>
-    <td>
       <img src="img/SettingsScreen.png" width="80%""/>
       <p align="center">Settings Screen</p>
     </td>
+  </tr>
+    <tr>
     <td>
       <img src="img/CollectionItem.png" width="80%""/>
       <p align="center">Collection Item Screen</p>
