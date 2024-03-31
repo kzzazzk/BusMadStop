@@ -57,7 +57,7 @@ Welcome to MadBusStop, your ultimate companion for navigating the bustling stree
   </tr>
     <tr>
     <td>
-      <img src="img/CollectionItem.png" width="80%""/>
+      <img src="img/ItemCollection.jpg" width="80%""/>
       <p align="center">Collection Item Screen</p>
     </td>
   </tr>
