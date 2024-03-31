@@ -1,4 +1,4 @@
-# Your App's Name (e.g., MADTracking)
+![FirstScreen](https://github.com/kzzazzk/AugmentingMadrid/assets/72697785/c63e72a4-882e-41fc-bc63-4968bb453d59)# Your App's Name (e.g., MADTracking)
 
 ## Workspace
 Github:
@@ -17,7 +17,7 @@ Include screenshots of the app in action. You can upload the images to GitHub an
 <table>
   <tr>
     <td>
-      <img src="img/nav1.png" width="80%" alt="Describe here image 1"/>
+      <img src="img/FirstScreen.png" width="80%" alt="Describe here image 1"/>
       <p align="center">Describe here image 1</p>
     </td>
     <td>
