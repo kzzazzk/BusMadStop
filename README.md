@@ -84,7 +84,7 @@ Video demonstrating how the app works (Max 1 video of 1 minute), upload it to a 
 
 ## How to Use
 Provide instructions on how to get started with the app as user. 
-
+- You must first login and then you can enjoy all of the functionalities BusMadStop has to offer!!!
 
 ## Participants
 List of MAD developers:
