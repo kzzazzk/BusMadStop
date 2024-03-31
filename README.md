@@ -14,27 +14,27 @@ A brief introduction to what your app does and why it's useful. Explain how it e
 <table>
   <tr>
     <td>
-      <img src="img/FirstScreen.png" width="80%" alt="Describe here image 1"/>
+      <img src="img/FirstScreen.png" width="80%""/>
       <p align="center">First Screen</p>
     </td>
     <td>
-      <img src="img/SignUpScreen.png" width="80%" alt="Describe here image 2"/>
+      <img src="img/SignUpScreen.png" width="80%" "/>
       <p align="center">Sign Up</p>
     </td>
   </tr>
   <tr>
     <td>
-      <img src="img/SignInScreen.png" width="80%" alt="Describe here image 2"/>
+      <img src="img/SignInScreen.png" width="80%""/>
       <p align="center">Sign In Screen</p>
     </td>
     <td>
-      <img src="img/GoogleSignIn.png" width="80%" alt="Describe here image 4"/>
+      <img src="img/GoogleSignIn.png" width="80%" "/>
       <p align="center">Google Sign In Screen</p>
     </td>
   </tr>
   <tr>
     <td>
-      <img src="img/MainActivity.png" width="80%" alt="Describe here image 5"/>
+      <img src="img/MainActivity.png" width="80%""/>
       <p align="center">Main Activity Screen</p>
     </td>
     <td>
