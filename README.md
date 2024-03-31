@@ -73,7 +73,7 @@ Video demonstrating how the app works (Max 1 video of 1 minute), upload it to a 
 
 ## Features
 - Search for all bus stops in Madrid with an Interactive Map.
-- Check which bus stops are close to you within a 50m radius.
+- Check which bus stops are close to you within a 100m radius.
 - Logging in and out with Google or Email.
 - Persistence in csv/text fileas
 - Persistence in shared preferences
