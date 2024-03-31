@@ -24,7 +24,9 @@ class ThirdActivity : AppCompatActivity() {
 
         val toolbar: Toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
+        val backButton:ImageButton = findViewById(R.id.back_button)
 
+        backButton.visibility = View.INVISIBLE
         val settingsButton: ImageButton = findViewById(R.id.settings_button)
 
         settingsButton.setOnClickListener{
