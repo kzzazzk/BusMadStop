@@ -11,6 +11,7 @@ import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
@@ -58,15 +59,21 @@ class MainActivity : AppCompatActivity(), LocationListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
         }
-
+        val save_location: Button = findViewById(R.id.save_location)
+        save_location.setOnClickListener {
+            // Save the current location when the save_location button is pressed
+            latestLocation?.let {
+                Toast.makeText(this, "Saving location [${it.latitude}][${it.longitude}]", Toast.LENGTH_LONG).show()
+                saveCoordinatesToFile(it.latitude, it.longitude)
+            } ?: run {
+                Toast.makeText(this, "No location available to save.", Toast.LENGTH_LONG).show()
+            }
+        }
         val userIdentifier = getUserIdentifier()
 
         if (userIdentifier == null) {
             askForUserIdentifier()
-        } else {
-            Toast.makeText(this, "User ID: $userIdentifier", Toast.LENGTH_LONG).show()
         }
-
         Log.d(TAG, "onCreate: The activity is being created.")
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
@@ -82,7 +89,6 @@ class MainActivity : AppCompatActivity(), LocationListener {
         } else {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this)
         }
-
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         navView.setOnNavigationItemSelectedListener { item ->
@@ -119,11 +125,8 @@ class MainActivity : AppCompatActivity(), LocationListener {
     override fun onLocationChanged(location: Location) {
         latestLocation = location
         val textView: TextView = findViewById(R.id.coordsTextView)
-        Toast.makeText(this, "Coordinates update! [${location.latitude}][${location.longitude}]", Toast.LENGTH_LONG).show()
         textView.text = "Latitude: [${location.latitude}], Longitude: [${location.longitude}], UserId: [${getUserIdentifier()}]"
-        saveCoordinatesToFile(location.latitude, location.longitude)
     }
-
     private fun saveCoordinatesToFile(latitude: Double, longitude: Double) {
         val fileName = "gps_coordinates.csv"
         val file = File(filesDir, fileName)

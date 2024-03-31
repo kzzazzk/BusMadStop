@@ -9,11 +9,11 @@
 
     <LinearLayout
 
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
         <include layout="@layout/toolbar_layout"/>
+
 
     </LinearLayout>
 
@@ -40,10 +40,26 @@
     <TextView
         android:id="@+id/coordsTextView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="84dp"
         android:text="@string/latitude_0_0"
         android:textSize="18sp"
         app:layout_anchor="@+id/constraintLayout2"
         app:layout_anchorGravity="center" />
+
+    <Button
+        android:id="@+id/save_location"
+        android:layout_width="217dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="132dp"
+        android:background="#D50000"
+        android:text="SAVE LOCATION"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#D50000"
+        app:cornerRadius="0dp"
+        app:layout_anchor="@+id/coordsTextView"
+        app:layout_anchorGravity="bottom|center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
