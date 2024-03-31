@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1071663010273",
+    "project_id": "mad-busapp",
+    "storage_bucket": "mad-busapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071663010273:android:649b1ba09fd7d202ec42a0",
+        "android_client_info": {
+          "package_name": "com.example.augmentingmadrid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071663010273-51seomvto4etighf4k9mhh7smbi16d8c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.augmentingmadrid",
+            "certificate_hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+          }
+        },
+        {
+          "client_id": "1071663010273-upvutsscgnq5fegbqfe14h83ljo4qvg6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2IZdatqpXojTh-rKiltbPpSeg7VnN6GY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1071663010273-upvutsscgnq5fegbqfe14h83ljo4qvg6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
