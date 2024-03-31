@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
@@ -30,6 +31,8 @@ class SignUpActivity : AppCompatActivity() {
         settingsButton.visibility = View.INVISIBLE
         val backButton: ImageButton = findViewById(R.id.back_button)
         backButton.visibility = View.INVISIBLE
+        val toolbarcustomtitle: TextView = findViewById(R.id.custom_title)
+        toolbarcustomtitle.text = "Sign Up"
         submitButton.setOnClickListener {
             val name = nameEditText.text.toString()
             val email = emailEditText.text.toString()
@@ -59,10 +62,10 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun saveUser(user: String) {
-        val sharedPreferences = this.getSharedPreferences("AppPreferences", Context.MODE_PRIVATE)
-        sharedPreferences.edit().apply {
-            putString("user", user)
-            apply()
-        }
+        val sharedPreferences = getSharedPreferences("AppPreferences", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("user", user)
+        editor.commit() 
     }
+
 }

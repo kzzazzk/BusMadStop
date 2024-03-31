@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -38,6 +39,8 @@ class LoginActivity : ComponentActivity() {
         settingsButton.visibility = View.INVISIBLE
         val backButton: ImageButton = findViewById(R.id.back_button)
         backButton.visibility = View.INVISIBLE
+        val toolbarcustomtitle:TextView = findViewById(R.id.custom_title)
+        toolbarcustomtitle.text = "Sign In"
 
         signInButton.setOnClickListener {
             signInWithEmailAndPassword(emailEditText.text.toString(), passwordEditText.text.toString())

@@ -157,6 +157,6 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
     private fun getUserIdentifier(): String? {
         val sharedPreferences = this.getSharedPreferences("AppPreferences", Context.MODE_PRIVATE)
-        return sharedPreferences.getString("userIdentifier", null)
+        return sharedPreferences.getString("user", null)
     }
 }
