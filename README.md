@@ -1,19 +1,16 @@
-![FirstScreen](https://github.com/kzzazzk/AugmentingMadrid/assets/72697785/c63e72a4-882e-41fc-bc63-4968bb453d59)# Your App's Name (e.g., MADTracking)
+# MadBusStop
 
 ## Workspace
 Github:
 - Repository: https://github.com/btabuenca/HelloWorldKt/
 - Releases: https://github.com/btabuenca/HelloWorldKt/releases
-
-Workspace: https://upm365.sharepoint.com/sites/MobileAppSite .
+- Workspace: https://upm365.sharepoint.com/sites/MobileAppSite .
 
 
 ## Description
 A brief introduction to what your app does and why it's useful. Explain how it enhances the experience within its scope (e.g., finding green routes to walk in Madrid) and any unique features it offers. Compare and contrast with already existing apps in the markets (Google Play or AppStore iOS).
 
 ## Screenshots and navigation
-Include screenshots of the app in action. You can upload the images to GitHub and then reference them here using Markdown or HTML syntax:
-
 <table>
   <tr>
     <td>
