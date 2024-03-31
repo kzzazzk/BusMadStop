@@ -68,6 +68,6 @@ Provide instructions on how to get started with the app as user.
 
 ## Participants
 List of MAD developers:
-- Zakaria Lasry Sahraoui (z.lasry@alumnos.upm.es)
+- Zakaria Lasry Sahraoui (z.lsahraoui@alumnos.upm.es)
 - Salman Bourhim Messaoudi (s.bourhim@alumnos.upm.es)  
 
