@@ -2,6 +2,9 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+    id("androidx.room")
+    id ("kotlin-kapt")
+
 }
 
 android {
@@ -9,6 +12,9 @@ android {
     namespace = "com.example.augmentingmadrid"
     compileSdk = 34
 
+    room {
+        schemaDirectory("$projectDir/schemas")
+    }
 
     defaultConfig {
         applicationId = "com.example.augmentingmadrid"
@@ -54,6 +60,16 @@ android {
 }
 
 dependencies {
+
+    val room_version = "2.6.1"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    kapt ("androidx.room:room-compiler:$room_version")
+
+
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1")
     implementation(platform("com.google.firebase:firebase-bom:32.7.4"))
     implementation("com.google.firebase:firebase-auth")
     implementation ("com.firebaseui:firebase-ui-auth:8.0.1")

@@ -23,7 +23,6 @@ import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import org.w3c.dom.Text
 import java.io.File
 
 
@@ -157,6 +156,6 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
     private fun getUserIdentifier(): String? {
         val sharedPreferences = this.getSharedPreferences("AppPreferences", Context.MODE_PRIVATE)
-        return sharedPreferences.getString("userIdentifier", null)
+        return sharedPreferences.getString("user", null)
     }
 }
