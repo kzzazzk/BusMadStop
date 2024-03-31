@@ -11,24 +11,38 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ListView
 import android.widget.TextView
-import androidx.activity.ComponentActivity
+import androidx.appcompat.widget.Toolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.io.IOException
 import java.util.Date
 import java.util.Locale
+import androidx.appcompat.app.AppCompatActivity
 
 
-class SecondActivity : ComponentActivity() {
+
+class SecondActivity : AppCompatActivity() {
     private val TAG = "btaSecondActivity"
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
+
         Log.d(TAG, "onCreate: The activity is being created.")
+
+        val toolbar: Toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolbar)
+
+        val settingsButton: ImageButton = findViewById(R.id.settings_button)
+
+        settingsButton.setOnClickListener{
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
+
         val listView: ListView = findViewById(R.id.lvCoordinates)
         val headerView = layoutInflater.inflate(R.layout.listview_header, listView, false)
         listView.addHeaderView(headerView, null, false)

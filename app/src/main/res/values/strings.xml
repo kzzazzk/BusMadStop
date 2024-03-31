@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AugmentingMadrid</string>
+    <string name="app_name">BusMadStop</string>
     <string name="title_activity_main">activity_main</string>
     <string name="title_activity_acitivity_main">acitivity_main</string>
     <string name="title_activity_main.xml">activity_main.xml</string>
@@ -52,10 +52,11 @@
     </string>
     <string name="title_activity_third">ThirdActivity</string>
     <string name="go_to_second_activity">GO TO SECOND ACTIVITY</string>
-    <string name="augmentingmadrid">AugmentingMadrid</string>
+    <string name="augmentingmadrid">BusMadStop</string>
     <string name="longitude_0_0">Longitude: 0.0</string>
     <string name="latitude_0_0">Latitude: 0.0</string>
     <string name="open_map">OPEN MAP</string>
     <string name="title_activity_open_street_map">OpenStreetMapActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
     <string name="title_activity_test">Test</string>
 </resources>

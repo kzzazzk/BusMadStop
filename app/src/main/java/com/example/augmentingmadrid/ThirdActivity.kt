@@ -5,13 +5,15 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
+import android.view.View
+import android.widget.ImageButton
 import android.widget.TextView
-import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
-class ThirdActivity : ComponentActivity() {
+class ThirdActivity : AppCompatActivity() {
     private val TAG = "btaThirdActivity"
 
     @SuppressLint("MissingInflatedId")
@@ -19,6 +21,17 @@ class ThirdActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate: The activity is being created.");
         setContentView(R.layout.activity_third)
+
+        val toolbar: Toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolbar)
+
+        val settingsButton: ImageButton = findViewById(R.id.settings_button)
+
+        settingsButton.setOnClickListener{
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
+
         val latitude = intent.getStringExtra("latitude")
         val longitude = intent.getStringExtra("longitude")
         Log.d(TAG, "Latitude: $latitude, Longitude: $longitude")

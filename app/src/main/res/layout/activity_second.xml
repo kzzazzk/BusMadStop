@@ -7,58 +7,20 @@
     android:orientation="vertical"
     tools:context=".SecondActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#DD2C00"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <include layout="@layout/toolbar_layout"/>
 
-        <LinearLayout
+        <ListView
+            android:id="@+id/lvCoordinates"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-            <TextView
-                android:id="@+id/custom_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/augmentingmadrid"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/windowBackground"
+            app:menu="@menu/bottom_nav_menu" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+    </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/settings_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/settings"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:padding="8dp"
-                android:contentDescription="Settings"/>
-
-        </LinearLayout>
-
-    </androidx.appcompat.widget.Toolbar>
-
-
-    <ListView
-        android:id="@+id/lvCoordinates"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
-        app:menu="@menu/bottom_nav_menu" />
-
-</LinearLayout>

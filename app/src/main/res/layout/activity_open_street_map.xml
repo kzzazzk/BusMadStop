@@ -1,49 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OpenStreetMapActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <LinearLayout
+
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#DD2C00"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal">
+        <include layout="@layout/toolbar_layout" />
 
-            <TextView
-                android:id="@+id/custom_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/augmentingmadrid"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <ImageButton
-                android:id="@+id/settings_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/settings"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:padding="8dp"
-                android:contentDescription="Settings"/>
-
-        </LinearLayout>
-
-    </androidx.appcompat.widget.Toolbar>
+    </LinearLayout>
 
 
     <org.osmdroid.views.MapView
@@ -54,9 +26,12 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground">
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        android:background="?android:attr/windowBackground"
+        app:layout_anchor="@+id/linearLayout"
+        app:layout_anchorGravity="bottom|center"
+        app:menu="@menu/bottom_nav_menu" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

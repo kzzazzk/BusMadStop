@@ -34,6 +34,11 @@
             android:label="@string/title_activity_second"
             android:theme="@style/Theme.AugmentingMadrid" />
         <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/Theme.AugmentingMadrid" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/title_activity_acitivity_main"

@@ -54,6 +54,7 @@ android {
 
 dependencies {
     implementation ("com.google.android.material:material:1.11.0")
+    implementation ("androidx.preference:preference:1.2.1")
     implementation("org.osmdroid:osmdroid-android:6.1.18")
     implementation("com.google.android.gms:play-services-location:21.2.0")
     implementation("androidx.core:core-ktx:1.12.0")
