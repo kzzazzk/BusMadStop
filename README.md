@@ -15,27 +15,27 @@ A brief introduction to what your app does and why it's useful. Explain how it e
   <tr>
     <td>
       <img src="img/FirstScreen.png" width="80%" alt="Describe here image 1"/>
-      <p align="center">Describe here image 1</p>
+      <p align="center">First Screen</p>
     </td>
     <td>
-      <img src="img/nav2.png" width="80%" alt="Describe here image 2"/>
-      <p align="center">Describe here image 2</p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="img/nav3.png" width="80%" alt="Describe here image 3"/>
-      <p align="center">Describe here image 3</p>
-    </td>
-    <td>
-      <img src="img/nav4.png" width="80%" alt="Describe here image 4"/>
-      <p align="center">Describe here image 4</p>
+      <img src="img/SignUpScreen.png" width="80%" alt="Describe here image 2"/>
+      <p align="center">Sign Up</p>
     </td>
   </tr>
   <tr>
     <td>
-      <img src="img/nav6.png" width="80%" alt="Describe here image 5"/>
-      <p align="center">Describe here image 5</p>
+      <img src="img/SignInScreen.png" width="80%" alt="Describe here image 2"/>
+      <p align="center">Sign In Screen</p>
+    </td>
+    <td>
+      <img src="img/GoogleSignIn.png" width="80%" alt="Describe here image 4"/>
+      <p align="center">Google Sign In Screen</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="img/MainActivity.png" width="80%" alt="Describe here image 5"/>
+      <p align="center">Main Activity Screen</p>
     </td>
     <td>
     </td>
