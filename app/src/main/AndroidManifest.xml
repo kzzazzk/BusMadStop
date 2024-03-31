@@ -39,10 +39,16 @@
             android:label="@string/title_activity_settings"
             android:theme="@style/Theme.AugmentingMadrid" />
         <activity
+            android:name=".RetrofitClient"
+            android:exported="false"
+            android:label="MadBusStop"
+            android:theme="@style/Theme.AugmentingMadrid"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="MadBusStop"
             android:theme="@style/Theme.AugmentingMadrid">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
