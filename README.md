@@ -78,6 +78,7 @@ Video demonstrating how the app works (Max 1 video of 1 minute), upload it to a 
 - Persistence in csv/text fileas
 - Persistence in shared preferences
 - Firebase authentication
+- In Room Database (For the forseable future)
 - Maps: Openstreetmaps or Google maps
 - Resful APIs used (*e.g., EMT Api https://apidocs.emtmadrid.es *). 
 - Menu: *e.g., Toolbar and Bottom Navigation Menu*
