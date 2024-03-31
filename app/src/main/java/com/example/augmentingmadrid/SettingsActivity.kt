@@ -23,7 +23,6 @@ class SettingsActivity : AppCompatActivity() {
         backButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            backButton.visibility = View.INVISIBLE
         }
     }
 
