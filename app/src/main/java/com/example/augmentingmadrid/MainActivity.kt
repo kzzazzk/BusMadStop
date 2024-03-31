@@ -23,6 +23,7 @@ import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import org.w3c.dom.Text
 import java.io.File
 
 
@@ -61,7 +62,6 @@ class MainActivity : AppCompatActivity(), LocationListener {
         }
         val save_location: Button = findViewById(R.id.save_location)
         save_location.setOnClickListener {
-            // Save the current location when the save_location button is pressed
             latestLocation?.let {
                 Toast.makeText(this, "Saving location [${it.latitude}][${it.longitude}]", Toast.LENGTH_LONG).show()
                 saveCoordinatesToFile(it.latitude, it.longitude)
@@ -69,16 +69,13 @@ class MainActivity : AppCompatActivity(), LocationListener {
                 Toast.makeText(this, "No location available to save.", Toast.LENGTH_LONG).show()
             }
         }
-        val userIdentifier = getUserIdentifier()
-
-        if (userIdentifier == null) {
-            askForUserIdentifier()
-        }
         Log.d(TAG, "onCreate: The activity is being created.")
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         getLastKnownLocation()
 
+        val userText:TextView = findViewById(R.id.userText)
+        userText.text = "User: "+getUserIdentifier()
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         // Check for location permissions
@@ -125,7 +122,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
     override fun onLocationChanged(location: Location) {
         latestLocation = location
         val textView: TextView = findViewById(R.id.coordsTextView)
-        textView.text = "Latitude: [${location.latitude}], Longitude: [${location.longitude}], UserId: [${getUserIdentifier()}]"
+        textView.text = "Latitude: [${location.latitude}], Longitude: [${location.longitude}]]"
     }
     private fun saveCoordinatesToFile(latitude: Double, longitude: Double) {
         val fileName = "gps_coordinates.csv"
@@ -155,34 +152,6 @@ class MainActivity : AppCompatActivity(), LocationListener {
         }
         fusedLocationProviderClient.lastLocation.addOnSuccessListener { location: Location? ->
             latestLocation = location
-        }
-    }
-
-
-    private fun askForUserIdentifier() {
-        val input = EditText(this)
-        AlertDialog.Builder(this)
-            .setTitle("Enter User Identifier")
-            .setIcon(R.mipmap.ic_launcher)
-            .setView(input)
-            .setPositiveButton("Save") { dialog, which ->
-                val userInput = input.text.toString()
-                if (userInput.isNotBlank()) {
-                    saveUserIdentifier(userInput)
-                    Toast.makeText(this, "User ID saved: $userInput", Toast.LENGTH_LONG).show()
-                } else {
-                    Toast.makeText(this, "User ID cannot be blank", Toast.LENGTH_LONG).show()
-                }
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
-    }
-
-    private fun saveUserIdentifier(userIdentifier: String) {
-        val sharedPreferences = this.getSharedPreferences("AppPreferences", Context.MODE_PRIVATE)
-        sharedPreferences.edit().apply {
-            putString("userIdentifier", userIdentifier)
-            apply()
         }
     }
 

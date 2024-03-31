@@ -59,4 +59,6 @@
     <string name="title_activity_open_street_map">OpenStreetMapActivity</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="title_activity_test">Test</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
 </resources>

@@ -19,6 +19,27 @@
         android:theme="@style/Theme.AugmentingMadrid"
         tools:targetApi="31">
         <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.AugmentingMadrid" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false"
+            android:label="@string/title_activity_sign_up"
+            android:theme="@style/Theme.AugmentingMadrid" />
+        <activity
+            android:name=".LoginActivityPrompt"
+            android:exported="true"
+            android:label="MadBusStop"
+            android:theme="@style/Theme.AugmentingMadrid">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".OpenStreetMapActivity"
             android:exported="false"
             android:label="@string/title_activity_open_street_map"
@@ -42,13 +63,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:label="MadBusStop"
-            android:theme="@style/Theme.AugmentingMadrid">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.AugmentingMadrid" />
     </application>
 
 </manifest>
