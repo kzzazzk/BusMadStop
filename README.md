@@ -1,4 +1,4 @@
-# MadBusStop
+# BusMadStop    
 ![ic_launcher](https://github.com/kzzazzk/AugmentingMadrid/assets/72697785/b87118ad-4ba3-4614-a517-7fe6fe68cc9b)
 
 
